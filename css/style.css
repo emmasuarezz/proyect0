@@ -18,7 +18,7 @@ background-color:rgb(255, 136, 0);
     position: absolute;
     width: 750px;
     height: 855px;
-    background-image: url(proyectO/img/emma/imagen.png);
+    background-image: url(./img/emma/imagen.png);
     border-top-left-radius: 30px;
     border-bottom-left-radius:30px;
 
@@ -30,7 +30,7 @@ left: 68%;
 bottom: 65%;
 width: 200px;
 height: 200px;
-background-image: url(proyectO/img/emma/logo.png);
+background-image: url(./img/emma/logo.png);
 }
 
 h1 {
@@ -126,7 +126,7 @@ position: absolute;
 left: 92.6%;
 width: 100px;
 height: 100px;
-background-image: url(proyectO/img/emma/JaP.png);
+background-image: url(./img/emma/JaP.png);
 opacity: 0.3;
 overflow-x:auto;
 }
