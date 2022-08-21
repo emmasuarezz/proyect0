@@ -12,7 +12,7 @@ alert("Los campos no pueden estar vacios!");
 }
 else {
     alert ("Bienvenido");
-    window.location.href = "/portada.html";
+    window.location.href = "proyectO/portada.html";
 }
 }
 
