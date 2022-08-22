@@ -83,7 +83,7 @@ font-weight: bold;
 #label2 {
 position: absolute;
 left: 28.2%;
-bottom: 51%;
+bottom: 51.5%;
 display: block;
 margin-left: auto;
 margin-right: auto;
@@ -115,7 +115,7 @@ height: 65px;
 
 #bttn:hover {
 
-background-color: rgb(87, 108, 158);
+background-color: rgb(72, 92, 139);
 
 }
 
