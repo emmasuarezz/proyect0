@@ -1,8 +1,6 @@
 body {
 position: relative;
-background-color:rgb(255, 136, 0);
-
-
+background-image: url(./img/emma/fonddo.png);
 
 }
 
@@ -131,7 +129,6 @@ width: 100px;
 height: 100px;
 background-image: url(./img/emma/JaP.png);
 opacity: 0.3;
-overflow-x:auto;
 }
 
 #JaP:hover {
