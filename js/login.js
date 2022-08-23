@@ -8,10 +8,18 @@ return persona;
 function validar () {
 let u = datos();
 if (u.email == "" || u.password == "") {
-alert("Los campos no pueden estar vacios!");
+    Swal.fire(
+        'Error',
+        'Los campos no pueden estar vacios',
+        'error'
+      );
 }
 else {
-    alert ("Bienvenido");
+    Swal.fire(
+        'Bienvenido!',
+        '',
+        'success'
+      );
     window.location.href = "https://emmasuarezz.github.io/proyectO/portada.html";
 }
 }
