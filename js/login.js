@@ -15,6 +15,9 @@ if (u.email == "" || u.password == "") {
       );
 }
 else {
+  let usuario = document.getElementById('email').value;
+  localStorage.setItem('usuario', usuario);
+    
     Swal.fire(
         'Bienvenido!',
         '',
@@ -23,9 +26,7 @@ else {
       setTimeout(()=>{
         window.location.href = 'https://emmasuarezz.github.io/proyectO/portada.html';
       }, 2000);
-      let usuario = this.getElementById('email')
-      localStorage.setItem('usuario', 'usuario')
-    
+      
 }
 }
 
