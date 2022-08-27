@@ -20,7 +20,7 @@ else {
         '',
         'success'
       );
-      setTimeout(function(){
+      setTimeout(()=>{
         window.location.href = 'https://emmasuarezz.github.io/proyectO/portada.html';
       }, 2000);
     
