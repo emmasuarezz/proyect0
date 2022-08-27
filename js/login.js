@@ -20,7 +20,10 @@ else {
         '',
         'success'
       );
-    window.location.href = "https://emmasuarezz.github.io/proyectO/portada.html";
+      setTimeout(function(){
+        window.location.href = 'https://emmasuarezz.github.io/proyectO/portada.html';
+      }, 2000);
+    
 }
 }
 
