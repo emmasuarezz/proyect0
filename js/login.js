@@ -11,7 +11,7 @@ if (u.email == "" || u.password == "") {
     Swal.fire(
         'Error',
         'Los campos no pueden estar vacios',
-        'error'
+        'error',
       );
 }
 else {
@@ -23,6 +23,8 @@ else {
       setTimeout(()=>{
         window.location.href = 'https://emmasuarezz.github.io/proyectO/portada.html';
       }, 2000);
+      let usuario = this.getElementById('email')
+      localStorage.setItem('usuario', 'usuario')
     
 }
 }
