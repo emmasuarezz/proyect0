@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(){
           }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                window.location.href = 'index.html';
+                window.location.href = './';
                 localStorage.removeItem(usuario);
             }
           })
