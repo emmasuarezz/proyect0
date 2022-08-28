@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function(){
             confirmButtonColor: '#e98b20',
             denyButtonColor: '#e8a75d',
           }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 window.location.href = './';
                 localStorage.removeItem(usuario);
