@@ -8,24 +8,30 @@ return persona;
 function validar () {
 let u = datos();
 if (u.email == "" || u.password == "") {
-    Swal.fire(
-        'Error',
-        'Los campos no pueden estar vacios',
-        'error',
-      );
+    Swal.fire({
+        title: 'Error',
+        text: 'Los campos no pueden estar vacios',
+        icon: 'error',
+        background: '#485c8b',
+        color: '#fff',
+        confirmButtonColor: '#e98b20'
+    });
 }
 else {
   let usuario = document.getElementById('email').value;
   localStorage.setItem('usuario', usuario);
     
-    Swal.fire(
-        'Bienvenido!',
-        '',
-        'success'
-      );
+    Swal.fire({
+        title: 'Bienvenido!',
+        text: '',
+        icon: 'success',
+        background: '#485c8b',
+        color: '#fff',
+        confirmButtonColor: '#e98b20'
+    });
       setTimeout(()=>{
-        window.location.href = 'https://emmasuarezz.github.io/proyectO/portada.html';
-      }, 2000);
+        window.location.href = 'portada.html';
+      }, 1000);
       
 }
 }
