@@ -37,7 +37,9 @@ document.addEventListener("DOMContentLoaded", function(){
     getJSONData("https://japceibal.github.io/emercado-api/cats_products/101.json").then(function(resultObj){
         if (resultObj.status === "ok"){
             productsArray = resultObj.data.products
+            document.getElementById("catName").innerHTML = resultObj.data.catName
             showProductList()
         }
     })
+    
 })
