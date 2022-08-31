@@ -5,6 +5,7 @@ let currentproductsArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
+const searchinput = document.querySelector('#buscador');
 
 function sortProducts(criteria, array){
     let result = [];
@@ -83,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function(){
     getJSONData("https://japceibal.github.io/emercado-api/cats_products/"+ id +".json").then(function(resultObj){
         if (resultObj.status === "ok"){
             currentproductsArray = resultObj.data.products
-            document.getElementById("catName").innerHTML = resultObj.data.catName
+            document.getElementById("catName").innerHTML =resultObj.data.catName
             showProductList()
         }
     })
@@ -130,4 +131,38 @@ document.addEventListener("DOMContentLoaded", function(){
 
         showProductList();
     });
-});
+
+    searchinput.addEventListener("input", () => {
+        
+        let contenido = document.getElementById('buscador').value;
+        let htmlContentToAppend = "";
+        for(let i = 0; i < currentproductsArray.length; i++){
+        let products = currentproductsArray[i];
+
+        if ((products.name.toLowerCase().includes(contenido) || products.name.includes(contenido)) || 
+            (products.description.toLowerCase().includes(contenido) || products.description.includes(contenido))){
+
+            htmlContentToAppend += `
+            <div class="list-group-item list-group-item-action cursor-active">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="${products.image}" alt="${products.description}" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">${products.name} - ${products.currency} ${products.cost}</h4>
+                            <small class="text-muted">${products.soldCount} vendidos</small>
+                        </div>
+                        <p class="mb-1">${products.description}</p>
+                    </div>
+                </div>
+            </div>
+            `
+        }
+
+        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+    }
+
+    })
+
+        })

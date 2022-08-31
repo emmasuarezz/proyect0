@@ -46,6 +46,7 @@
       <h2>Productos</h2>
       <p class="lead">Verás aquí todos los productos de la categorías <strong id="catName"></strong></p>
     </div>
+  </div>
     <div class="col text-end">
       <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
         <input type="radio" class="btn-check" name="options" id="sortAsc">
@@ -59,8 +60,11 @@
     <div class="row">
       <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
         <div class="row container p-0 m-0">
+          <div class="col-3 p-0">
+            <input class="form-control" type="search" placeholder="Buscar" id="buscador">
+          </div>
           <div class="col">
-            <p class="font-weight-normal text-end my-2">Cant.</p>
+            <p class="font-weight-normal text-end my-2">Precio</p>
           </div>
           <div class="col">
             <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
@@ -68,6 +72,7 @@
           <div class="col">
             <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
           </div>
+          
           <div class="col-3 p-0">
             <div class="btn-group" role="group">
               <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
@@ -77,6 +82,8 @@
         </div>
       </div>
     </div>
+    <div class="row container p-0 m-0">
+  </div>
     <div class="list-group" id="prod-list-container">
     </div>
   </main>
