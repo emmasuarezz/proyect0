@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="92293482234-c98lgile78ql5q6q8dicrkjekk37fmfq.apps.googleusercontent.com">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>eMercado - Login</title>
     <link rel="icon" type="image/x-icon" href="./css/img/emma/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="js/login.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -27,6 +30,8 @@
     </div>
 
     <button id="bttn">Ingresar</button>
+
+    <div id="btnG" class="g-signin2" data-onsucess="onSignIn" data-theme="dark"></div>
 
     <p> ¿No tienes cuenta? <span id="reg">Regístrate</span></p>
         
