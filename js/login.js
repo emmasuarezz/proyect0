@@ -5,6 +5,20 @@ persona.password = document.getElementById('password').value;
 return persona;
 }
 
+function onSignIn (googleUser){
+  let profile = googleUser.getBasicProfile();
+  console.log("ID: " + profile.getId());
+  console.log("Full Name: " + profile.getName());
+  console.log("Email: " + profile.getEmail());
+
+  let id_token = googleUser.getAuthResponse().id_token;
+  console.log("ID Token: " + id_token);
+
+}
+
+
+
+
 function validar () {
 let u = datos();
 if (u.email == "" || u.password == "") {
@@ -42,5 +56,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         validar();
     })
+
+
+
+
 
 })
