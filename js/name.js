@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
           }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = './';
-                localStorage.removeItem(usuario);
+                localstorage.removeItem('usuario');
             }
           })
 
