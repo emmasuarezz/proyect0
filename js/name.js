@@ -16,8 +16,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
             denyButtonColor: '#e8a75d',
           }).then((result) => {
             if (result.isConfirmed) {
+                localStorage.removeItem('usuario');
+                localStorage.removeItem('value');
                 window.location.href = './';
-                localstorage.removeItem('usuario');
+
             }
           })
 
