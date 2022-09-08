@@ -7,6 +7,16 @@ let minCount = undefined;
 let maxCount = undefined;
 const searchinput = document.querySelector('#buscador');
 
+function setProdID(prodID){
+
+    localStorage.setItem('prodID', prodID);
+    window.location = "product-info.html"
+
+
+}
+
+
+
 function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_PRICE)
@@ -45,7 +55,7 @@ function showProductList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))){
 
             htmlContentToAppend += `
-            <div class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setProdID(${products.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${products.image}" alt="${products.description}" class="img-thumbnail">
@@ -81,7 +91,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
 document.addEventListener("DOMContentLoaded", function(){
 
     let id = localStorage.getItem('catID');
-    getJSONData("https://japceibal.github.io/emercado-api/cats_products/"+ id +".json").then(function(resultObj){
+    getJSONData("https://japceibal.github.io/emercado-api/cats_products/" + id + ".json").then(function(resultObj){
         if (resultObj.status === "ok"){
             currentproductsArray = resultObj.data.products
             document.getElementById("catName").innerHTML =resultObj.data.catName
