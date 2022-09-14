@@ -5,21 +5,21 @@ function showCurrentProductImage(array){
 
     let htmlContentToAppend = "";
             htmlContentToAppend += `
-                    <div class="col-3">
-                        <img src="${array.images[0]}" alt="${array.description}">
-                    </div>
+                        <img src="${array.images[0]}" alt="${array.description}" style="float: right;">
             `
         
 
-        document.getElementById("prueba").innerHTML = htmlContentToAppend;
+        document.getElementById("prueba").innerHTML += htmlContentToAppend;
     }
+
+
 
 function showCurrentProduct(array){
 
         let htmlContentToAppend = "";
                 htmlContentToAppend += `
                         <div>
-                            <p class="flecha" > < <span id="atras" class="category">${array.category}</span></p>
+                            <p class="flecha" > < <span id="atras" class="category"><a onclick="window. history. back();">${array.category}</a></span></p>
                             <h1 class="nombre"><strong>${array.name}</strong></h1>
                             <hr>
                             <p class="description"> ${array.description} </p>
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
             ProductArray = resultObj.data
             showCurrentProductImage(ProductArray);
             showCurrentProduct(ProductArray);
+
         }
     });
 

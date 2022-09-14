@@ -1,17 +1,18 @@
 body {
 position: relative;
+max-width: 150%;
+max-height: 100%;
 background-image: url(./img/emma/fonddo.png);
 
 }
-
 #contenedor {
-    position: absolute;
-    right: 11%;
-    width: 1500px;
-    height: 855px;
+    border-radius: 35px;
+    margin-top: 63px;
+    height: 750px;
+    padding-bottom: -20px;
     background-color: rgb(12, 24, 61);
-    border-radius: 30px
 }
+
 #imagen {
     position: absolute;
     width: 750px;
