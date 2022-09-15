@@ -38,7 +38,7 @@ else {
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
-    document.getElementById('bttn').addEventListener('click', ()=>{
+    document.getElementById('boton').addEventListener('click', ()=>{
 
         validar();
     })
