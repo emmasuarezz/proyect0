@@ -1,77 +1,28 @@
-#prueba {
-    position: relative;
-    left: 190px;
-    margin-top: 30px;
-    top: 0px;
-    background-color: grey;
-    width: 765px;
-    height: 468px;
-    float: left;
-}
-
-#prueba2 {
-    float: right;
-    position: relative;
-    right: 300px;
-    margin-top: 25px;
-    top: 0px;
-    width: 660px;
-    height: 660px;
-}
-
-#prueba3 {
-    position: relative;
-    top: 550px;
-    right: -175px;
-    width: 800px;
-    height: 150px;
-    background-color: grey;
-
-}
-.nombre {
-
-margin-left: 25px;
-margin-top: 105px;
-}
-.description {
-    font-size: large;
-    margin-left: 25px;
-    }
-
-    .precio {
-        margin-top: 20px;
-        margin-left: 25px;
-        
-        }
-
-.category {
-    font-weight: 700;
-    text-decoration: underline;
-    margin-left: 2px;
-    margin-bottom: 10px;    
+.tituloCOM {
+    color: rgb(49, 49, 49) !important;
+    text-decoration: underline !important;
+    font-weight: 400;
 
 }
 
-.category :hover {
+#boton {
 
-    cursor: pointer;
-}
-
-.flecha {
-    margin-left: 13px;
-    font-weight: 700;
+ margin-top: 15px;
 
 }
 
-.flecha :hover {
+.cartas {
+margin-top: 25px;
+margin-bottom: 25px;
+margin-left: auto;
+margin-right: auto;
+width: 500px !important;
+color: aliceblue;
+background-color: rgb(66, 66, 66);
 
-    cursor: pointer;
 }
 
+.cajaCOM {
 
-.vendidos {
-    margin-top: 20px;
-    font-size: small;
-margin-left: 25px;
-
+    width: 1000px !important;
 }
