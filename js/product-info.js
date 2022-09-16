@@ -10,7 +10,7 @@ function showImgGrande(array){
 
     htmlContentToAppend += `
 
-    <div class="img-fluid"">
+    <div class="img-fluid">
     <img class="d-block w-100" src="${array[i]}" alt="">
     </div>
     
@@ -36,6 +36,7 @@ function showCurrentProductImage(array){
     let htmlContentToAppend = "";
     let index = 0;
     for(let i = 0; i < array.length; i++){
+        
         let imagen = array[i];
 
             htmlContentToAppend += `
@@ -59,18 +60,17 @@ function showCurrentProductComments(array){
     for(let comment of array){
 
             htmlContentToAppend += `
-            <div class="card-body cartas">
-              <p>${comment.description}</p>
-  
-              <div class="d-flex justify-content-between">
-                <div class="d-flex flex-row align-items-center">
-                  <p class="small mb-0 ms-2"><strong>${comment.user}</strong></p>
-                </div>
-                <div class="d-flex flex-row align-items-center">
-                  <p class="small text mb-0">${comment.dateTime}</p>
-                </div>
-              </div>
-            </div>
+            <li class="media">
+                    <div class="media-body">
+                      <span class="text-muted pull-right">
+                        <small class="text-muted">${comment.dateTime}</small>
+                      </span>
+                      <strong class="text-success textColor">${comment.user}</strong>
+                      <p>
+                        ${comment.description}
+                      </p>
+                    </div>
+                  </li>
             `           
     }
     document.getElementById("comentarios").innerHTML += htmlContentToAppend;
@@ -121,14 +121,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if (resultObj.status === "ok"){
             CommentsArray = resultObj.data;
-
+            showCurrentProductComments(CommentsArray);
 
         }
     
     
 });
-
     
-
     });
 
