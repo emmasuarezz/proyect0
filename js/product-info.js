@@ -122,11 +122,18 @@ if ( cantidad == 1 || cantidad == 2) {
 
 }
 
-if ( cantidad == 3 || cantidad == 4) {
+if ( cantidad == 3) {
 
   estrellas += `  <i class="fas fa-smile"></i>`;
 
 }
+
+if ( cantidad == 4) {
+
+  estrellas += `  <i class="fas fa-grin-alt"></i>`;
+
+}
+
     return estrellas;
 
 }
@@ -210,25 +217,46 @@ function showCurrentProductComments(array){
                     </div>
                   </li>
             `           
-    }
-    else {
+    }else {
+     if (comment.score == 4){
+
       htmlContentToAppend += `
-            <li class="media comentario noMarker">
-                    <div class="media-body">
-                      <span class="text-muted pull-right">
-                        <small class="text-muted">${comment.dateTime}</small>
-                      </span>
-                      <strong class="text-success textColor textCinco">${comment.user}</strong>
-                      <span>${calcularEstrellas(comment.score)}</span>
-                      <p>
-                        ${comment.description}
-                      </p>
-                    </div>
-                  </li>
-            `           
-    }
-  }
+      <li class="media comentario noMarker cuatroEstrellas">
+              <div class="media-body">
+                <span class="text-muted pull-right">
+                  <small class="text-muted">${comment.dateTime}</small>
+                </span>
+                <strong class="text-success textColor">${comment.user}</strong>
+                <span class="estrellascuatro">${calcularEstrellas(comment.score)}</span>
+                <p>
+                  ${comment.description}
+                </p>
+              </div>
+            </li>
+      `           
+}
+else {
+  htmlContentToAppend += `
+        <li class="media comentario noMarker">
+                <div class="media-body">
+                  <span class="text-muted pull-right">
+                    <small class="text-muted">${comment.dateTime}</small>
+                  </span>
+                  <strong class="text-success textColor textCinco">${comment.user}</strong>
+                  <span>${calcularEstrellas(comment.score)}</span>
+                  <p>
+                    ${comment.description}
+                  </p>
+                </div>
+              </li>
+        `;           
+
+}} 
+  
+
     document.getElementById("comentarios").innerHTML = htmlContentToAppend;
+
+}
 }
 
 

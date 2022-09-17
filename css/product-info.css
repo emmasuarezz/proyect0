@@ -104,3 +104,25 @@ color: rgb(255, 63, 0) ;
     color: rgb(226, 57, 1) ;
 
 }
+.fa-grin-alt{
+
+    font-size: 25px;
+    color: rgb(226, 57, 1) ;
+
+}
+
+.cuatroEstrellas {
+
+    background-color: rgba(255, 225, 180, 0.171);
+    box-shadow: 2px 5px 4px 2px rgba(253, 163, 163, 0.103);
+    border: solid;
+    border-color: rgba(252, 196, 111, 0.274);
+
+
+}
+
+.estrellasCuatro {
+
+    font-size: 22px;
+
+}
