@@ -69,14 +69,29 @@
             <div class="panel panel-info">
               <div class="panel-body">
                 <textarea
+                  id="comentarioBody"
                   class="form-control"
                   placeholder="Danos tu opinión..."
                   rows="4"
                 ></textarea
                 ><br />
-                <button type="button" class="btn btn-outline-secondary pull-right">
+                <button id="enviar" type="button" class="btn btn-outline-secondary pull-right">
                   Publicar
                 </button>
+                <span id="contador">
+
+                  <select class="btn btn-outline-secondary" name="valor" id="valor">
+
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                  </select>
+
+                </span>
                 <div class="clearfix"></div>
                 <hr />
                 <div id="comentarios" class="media-list">

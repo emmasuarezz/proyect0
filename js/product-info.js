@@ -6,6 +6,85 @@ let SortedCommentsArray = [];
 
 
 
+
+function newComment(){
+
+let comentario = {};
+let tiempo = new Date ();
+let mes = "";
+let horas ="";
+let minutos ="";
+let segundos ="";
+
+if (parseInt(tiempo.getMonth()+1) < 10) {
+
+mes = "0" + parseInt(tiempo.getMonth()+1);
+
+}
+else {
+
+mes = parseInt(tiempo.getMonth()+1);
+}
+
+if (tiempo.getHours() < 10) {
+
+  horas = "0" + tiempo.getHours();
+  
+  }
+  else {
+  
+  horas = tiempo.getHours();
+  }
+
+  if (tiempo.getMinutes() < 10) {
+
+    minutos = "0" + tiempo.getMinutes();
+    
+    }
+    else {
+    
+    minutos = tiempo.getMinutes();
+    }
+
+    if (tiempo.getSeconds() < 10) {
+
+      segundos = "0" + tiempo.getSeconds();
+      
+      }
+      else {
+      
+      segundos = tiempo.getSeconds();
+      }
+
+ahora = tiempo.getFullYear() + "-" + mes + "-" + tiempo.getDate() + " " + horas + ":" + minutos + ":" + segundos;
+
+comentario.user = localStorage.getItem('usuario');
+comentario.description = document.getElementById('comentarioBody').value;
+comentario.dateTime = ahora;
+comentario.score = document.getElementById('valor').value;
+
+CommentsArray.push(comentario);
+SortedCommentsArray = CommentsArray.sort((a, b) => { 
+
+  if (a.score > b.score){return -1;}
+  if (a.score < b.score){return 1;}
+  return 0;
+});
+
+showCurrentProductComments(SortedCommentsArray);
+
+
+
+}
+
+
+
+
+
+
+
+
+
 function calcularEstrellas (cantidad) {
 
     estrellas = '';
@@ -14,12 +93,12 @@ function calcularEstrellas (cantidad) {
 
       if (i < cantidad) {
 
-        estrellas += `<i class="fas fa-star checked"></i>`;
+        estrellas += `<i id="${i}" class="fas fa-star checked"></i>`;
 
       }
     else {
 
-      estrellas += `<i class="far fa-star"></i>`;
+      estrellas += `<i id="${i}" class="far fa-star"></i>`;
 
     }
 
@@ -128,7 +207,7 @@ function showCurrentProductComments(array){
             `           
     }
   }
-    document.getElementById("comentarios").innerHTML += htmlContentToAppend;
+    document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 }
 
 
@@ -188,6 +267,16 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     
     
+});
+
+
+document.getElementById('enviar').addEventListener('click', ()=>{
+
+
+  newComment();
+
+
+
 });
     
     });
