@@ -89,23 +89,44 @@ function calcularEstrellas (cantidad) {
 
     estrellas = '';
 
+
     for (let i = 0; i < 5; i++) {
 
       if (i < cantidad) {
 
-        estrellas += `<i id="${i}" class="fas fa-star checked"></i>`;
+        estrellas += `<i class="fas fa-star checked"></i>`;
 
       }
     else {
 
-      estrellas += `<i id="${i}" class="far fa-star"></i>`;
+      estrellas += `<i class="far fa-star"></i>`;
 
-    }
+  }
+}
 
+if (cantidad == 5) {
 
-    }
+  estrellas += `  <i class="fas fa-grin-stars"></i>`;
 
+}
 
+if (cantidad == 0) {
+
+  estrellas += `  <i class="fas fa-frown"></i>`;
+
+}
+
+if ( cantidad == 1 || cantidad == 2) {
+
+  estrellas += `  <i class="fas fa-meh"></i>`;
+
+}
+
+if ( cantidad == 3 || cantidad == 4) {
+
+  estrellas += `  <i class="fas fa-smile"></i>`;
+
+}
     return estrellas;
 
 }

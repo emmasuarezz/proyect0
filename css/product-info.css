@@ -68,3 +68,39 @@ margin-left: 15px;
 
 }
 
+#etiqueta {
+    font-size: 20px;
+
+}
+
+.fa-grin-stars {
+font-size: 25px;
+color: rgb(255, 63, 0) ;
+
+}
+
+.fa-frown {
+
+font-size: 25px;
+color: rgb(145, 40, 5) ;
+}
+
+.fa-star {
+
+color: rgb(255, 63, 0) ;
+
+}
+
+.fa-meh {
+
+    font-size: 25px;
+    color: rgb(175, 44, 0) ;
+
+}
+
+.fa-smile {
+
+    font-size: 25px;
+    color: rgb(226, 57, 1) ;
+
+}
