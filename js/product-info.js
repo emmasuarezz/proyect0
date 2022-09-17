@@ -1,6 +1,41 @@
 let ProductArray = [];
 let CommentsArray = [];
 let ImagesArray = [];
+let SortedCommentsArray = [];
+
+
+
+
+function calcularEstrellas (cantidad) {
+
+    estrellas = '';
+
+    for (let i = 0; i < 5; i++) {
+
+      if (i < cantidad) {
+
+        estrellas += `<i class="fas fa-star checked"></i>`;
+
+      }
+    else {
+
+      estrellas += `<i class="far fa-star"></i>`;
+
+    }
+
+
+    }
+
+
+    return estrellas;
+
+}
+
+
+
+
+
+
 
 
 function showImgGrande(array){
@@ -59,13 +94,16 @@ function showCurrentProductComments(array){
     let htmlContentToAppend = "";
     for(let comment of array){
 
+      if (comment.score == 5){
+
             htmlContentToAppend += `
-            <li class="media">
+            <li class="media comentario noMarker cincoEstrellas">
                     <div class="media-body">
                       <span class="text-muted pull-right">
                         <small class="text-muted">${comment.dateTime}</small>
                       </span>
                       <strong class="text-success textColor">${comment.user}</strong>
+                      <span class="estrellas">${calcularEstrellas(comment.score)}</span>
                       <p>
                         ${comment.description}
                       </p>
@@ -73,6 +111,23 @@ function showCurrentProductComments(array){
                   </li>
             `           
     }
+    else {
+      htmlContentToAppend += `
+            <li class="media comentario noMarker">
+                    <div class="media-body">
+                      <span class="text-muted pull-right">
+                        <small class="text-muted">${comment.dateTime}</small>
+                      </span>
+                      <strong class="text-success textColor textCinco">${comment.user}</strong>
+                      <span>${calcularEstrellas(comment.score)}</span>
+                      <p>
+                        ${comment.description}
+                      </p>
+                    </div>
+                  </li>
+            `           
+    }
+  }
     document.getElementById("comentarios").innerHTML += htmlContentToAppend;
 }
 
@@ -121,7 +176,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if (resultObj.status === "ok"){
             CommentsArray = resultObj.data;
-            showCurrentProductComments(CommentsArray);
+            SortedCommentsArray = CommentsArray.sort((a, b) => { 
+
+              if (a.score > b.score){return -1;}
+              if (a.score < b.score){return 1;}
+              return 0;
+            });
+
+            showCurrentProductComments(SortedCommentsArray);
 
         }
     
