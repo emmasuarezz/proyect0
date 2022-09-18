@@ -106,44 +106,31 @@ function calcularEstrellas (cantidad) {
 
 if (cantidad == 5) {
 
-  estrellas += `  <i class="fas fa-grin-stars"></i>`;
+  estrellas += `  <i class="far fa-grin-stars"></i>`;
 
 }
 
-if (cantidad == 0) {
+if (cantidad == 0 || cantidad == 1) {
 
-  estrellas += `  <i class="fas fa-frown"></i>`;
-
-}
-
-if ( cantidad == 1 || cantidad == 2) {
-
-  estrellas += `  <i class="fas fa-meh"></i>`;
+  estrellas += `  <i class="far fa-frown"></i>`;
 
 }
 
-if ( cantidad == 3) {
+if (cantidad == 2 ) {
 
-  estrellas += `  <i class="fas fa-smile"></i>`;
+  estrellas += `  <i class="far fa-meh"></i>`;
 
 }
 
-if ( cantidad == 4) {
+if ( cantidad == 4 ||  cantidad == 3) {
 
-  estrellas += `  <i class="fas fa-grin-alt"></i>`;
+  estrellas += `  <i class="far fa-grin-alt"></i>`;
 
 }
 
     return estrellas;
 
 }
-
-
-
-
-
-
-
 
 function showImgGrande(array){
     let i = localStorage.getItem('foto');
@@ -165,13 +152,7 @@ function setImageIndex(index){
 
     localStorage.setItem('foto', index);
 
-
-
 }
-
-
-
-
 
 function showCurrentProductImage(array){
 
@@ -259,8 +240,6 @@ else {
 }
 }
 
-
-
 function showCurrentProduct(array){
 
         let htmlContentToAppend = "";
@@ -295,7 +274,8 @@ document.addEventListener("DOMContentLoaded", function(){
             ImagesArray = resultObj.data.images;
             showCurrentProduct(ProductArray);
             showCurrentProductImage(ImagesArray);
-            showImgGrande(ProductArray);
+            localStorage.setItem('foto', 0);
+            showImgGrande(ImagesArray);
 
         }
     });
