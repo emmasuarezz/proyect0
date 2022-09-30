@@ -64,25 +64,18 @@ comentario.dateTime = ahora;
 comentario.score = document.getElementById('valor').value;
 
 CommentsArray.push(comentario);
+
 SortedCommentsArray = CommentsArray.sort((a, b) => { 
 
   if (a.score > b.score){return -1;}
   if (a.score < b.score){return 1;}
   return 0;
+  
 });
 
 showCurrentProductComments(SortedCommentsArray);
 
-
-
 }
-
-
-
-
-
-
-
 
 
 function calcularEstrellas (cantidad) {
@@ -289,6 +282,7 @@ document.addEventListener("DOMContentLoaded", function(){
               if (a.score > b.score){return -1;}
               if (a.score < b.score){return 1;}
               return 0;
+
             });
 
             showCurrentProductComments(SortedCommentsArray);
@@ -301,10 +295,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 document.getElementById('enviar').addEventListener('click', ()=>{
 
-
   newComment();
-
-
 
 });
     
