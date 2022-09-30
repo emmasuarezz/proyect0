@@ -126,3 +126,10 @@ color: rgb(255, 63, 0) ;
     font-size: 22px;
 
 }
+
+.botonColor {
+
+
+background-color:rgb(255, 106, 57) !important;
+border-color: rgba(252, 196, 111, 0.274) !important;
+}

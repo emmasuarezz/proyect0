@@ -249,6 +249,9 @@ function showCurrentProduct(array){
           </br>
           </br>
           <a class="lead font-weight-normal tituloCOM" href="#comentarios">Reseñas</a>
+          </br>
+          </br>
+          <a class="lead font-weight-normal tituloCOM" href="#productosRelacionados">Productos relacionados</a>
         </div>
       </div>
                 `
@@ -256,6 +259,43 @@ function showCurrentProduct(array){
         }
 
 
+        function setProdID(prodID){
+
+          localStorage.setItem('prodID', prodID);
+          window.location = "product-info.html"
+      
+      
+      }
+
+
+function prodRel(array){
+
+  let htmlContentToAppend = "";
+  for (const producto of array) {
+
+    htmlContentToAppend += `
+
+    <div class="col-sm-6">
+    <div class="card">
+      <img class="card-img-top img-thumbnail" src="${producto.image}" alt="${producto.name}">
+      <div class="card-body">
+        <h5 class="card-title ">${producto.name}</h5>
+        <br>
+        <button onclick="setProdID(${producto.id})" class="btn btn-primary botonColor">Ver más</button>
+      </div>
+    </div>
+  </div>
+
+            `   
+  }
+
+  document.getElementById("productosRelacionados").innerHTML += htmlContentToAppend;
+
+
+
+
+
+}
 
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -265,10 +305,12 @@ document.addEventListener("DOMContentLoaded", function(){
         if (resultObj.status === "ok"){
             ProductArray = resultObj.data;
             ImagesArray = resultObj.data.images;
+            RelArray = resultObj.data.relatedProducts;
             showCurrentProduct(ProductArray);
             showCurrentProductImage(ImagesArray);
             localStorage.setItem('foto', 0);
             showImgGrande(ImagesArray);
+            prodRel(RelArray);
 
         }
     });
