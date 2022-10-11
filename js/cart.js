@@ -86,6 +86,13 @@ document.getElementById("contenedor").innerHTML = htmlContentToAppend;
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
+  if (JSON.parse(localStorage.getItem('carrito')) == null) {
+
+
+    localStorage.setItem('carrito', JSON.stringify(carritoArray));
+
+
+  }
     carritoArray = JSON.parse(localStorage.getItem('carrito'));
 
     if (carritoArray.length <= 1){
