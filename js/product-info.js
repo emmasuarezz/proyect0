@@ -26,6 +26,7 @@ carritoArray.push(nuevoProducto);
 
 localStorage.setItem('carrito', JSON.stringify(carritoArray));
 
+var notification = new Notification("Agregado al carrito!")
 
 }
 
