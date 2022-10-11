@@ -7,6 +7,32 @@ let SortedCommentsArray = [];
 
 
 
+function addToCart(array){
+ 
+
+
+let nuevoProducto = {};
+
+nuevoProducto.count = 1;
+nuevoProducto.currency = array.currency;
+nuevoProducto.unitCost = array.cost;
+nuevoProducto.name = array.name;
+nuevoProducto.id = localStorage.getItem('prodID');
+nuevoProducto.image = array.images[0];
+
+let carritoArray = JSON.parse(localStorage.getItem('carrito'));
+
+carritoArray.push(nuevoProducto);
+
+localStorage.setItem('carrito', JSON.stringify(carritoArray));
+
+
+}
+
+
+
+
+
 function newComment(){
 
 let comentario = {};
@@ -242,7 +268,7 @@ function showCurrentProduct(array){
           <h1 id="titulo" class="display-4 font-weight-normal">${array.name}</h1>
           <p class="lead font-weight-normal">${array.description}</p>
           <p class="lead font-weight-normal">${array.currency} ${array.cost}</p>
-          <a class="btn btn-outline-secondary" href="#">Comprar</a>
+          <a id="carrito" onclick="addToCart(ProductArray)" class="btn btn-outline-secondary" href="#">Añadir al carrito</a>
           </br>
           </br>
           <a class="lead font-weight-normal tituloCOM" href="#imagenes">Imagenes</a>
@@ -259,7 +285,7 @@ function showCurrentProduct(array){
         }
 
 
-        function setProdID(prodID){
+function setProdID(prodID){
 
           localStorage.setItem('prodID', prodID);
           window.location = "product-info.html"
