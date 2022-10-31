@@ -19,6 +19,7 @@ nuevoProducto.unitCost = array.cost;
 nuevoProducto.name = array.name;
 nuevoProducto.id = localStorage.getItem('prodID');
 nuevoProducto.image = array.images[0];
+nuevoProducto.subtotal = array.cost;
 
 let carritoArray = JSON.parse(localStorage.getItem('carrito'));
 

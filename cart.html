@@ -57,19 +57,19 @@
         </div>
         <div class="row">
         <div class="col">
-        <input type="radio" name="envio" id="01"></input>
+        <input type="radio" name="envio" id="01" onchange="calcularEnvio()"></input>
         <label for="01">Premium 2 a 5 días (15%)</label>
       </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="radio" name="envio" id="02"></input>
+            <input type="radio" name="envio" id="02" onchange="calcularEnvio()"></input>
             <label for="02">Express 5 a 8 días (7%)</label>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="radio" name="envio" id="03"></input>
+            <input type="radio" name="envio" id="03" onchange="calcularEnvio()"></input>
             <label for="03" style="margin-bottom: 25px;">Standard 12 a 15 días (5%)</label>
           </div>
         </div>
@@ -96,7 +96,37 @@
         </div>
     </div>
 
+    <hr>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3 class="fw-normal mb-0 text-black" style="margin-top: 30px;">Costos</h3>
+    </div>
 
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Subtotal</h5>
+          <span style="font-size:20px; margin-top:20px;">USD <span id="cantidadFinal"></span></span>
+        </div>
+        <p class="mb-1">Costo unitario de <em>el/los</em> producto/s por cantidad.</p>
+      </a>
+      </div>
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Costo de envio</h5>
+            <span style="font-size:20px; margin-top:20px;">USD <span id="cantidadEnvio"></span></span>
+          </div>
+          <p class="mb-1">Segun el tipo de envio.</p>
+        </a>
+        </div>
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action flex-column align-items-start">
+            <div style="padding-top: 15px; padding-bottom: 10px;" class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Total ($)</h5>
+             <strong><span style="font-size:20px;">USD <span id="cantidadTotal"></span></span></strong>
+            </div>
+          </a>
+          </div>
 
     </div>
   </main>

@@ -2,6 +2,75 @@ carritoArray = [];
 
 valores = 0;
 
+function sumarTodo(){
+let total = 0;
+let envio = parseInt(document.getElementById('cantidadEnvio').innerHTML, 10);
+let valor = parseInt(document.getElementById('cantidadFinal').innerHTML, 10);
+
+total = envio + valor;
+document.getElementById('cantidadTotal').innerHTML = total;
+
+
+}
+
+function calcularEnvio (){
+
+  let costo = 0;
+
+  let valor = parseInt(document.getElementById('cantidadFinal').innerHTML, 10);
+
+  if (document.getElementById('01').checked) {
+
+    costo = (valor * 15) / 100;
+
+  }
+
+  if (document.getElementById('02').checked) {
+
+    costo = (valor * 7) / 100;
+
+  }
+
+  if (document.getElementById('03').checked) {
+
+    costo = (valor * 5) / 100;
+
+  }
+
+
+document.getElementById('cantidadEnvio').innerHTML = costo;
+
+sumarTodo();
+
+  
+}
+
+function sumarTotales (array) {
+
+  let subtotalFinal = 0;
+
+for (const producto of array) {
+
+  if (producto.currency == "USD") {
+  
+  subtotalFinal += producto.subtotal;
+
+  }
+
+  else {
+
+    subtotalFinal += (producto.subtotal / 40);
+
+  }
+}
+
+let contenedor = document.getElementById('cantidadFinal');
+contenedor.innerHTML = subtotalFinal;
+
+sumarTodo();
+
+}
+
 
 
 function borrarProd(array, i) {
@@ -15,13 +84,15 @@ localStorage.setItem('carrito', JSON.stringify(carritoArray));
 
 
 
-function setCant(array, i){
+function setCant(obj, i){
 
 let valor = document.getElementById('cantidad' + i).value;
 
-array.count = valor;
+obj.count = valor;
 
-let resultado = array.count * array.unitCost;
+let resultado = obj.count * obj.unitCost;
+
+obj.subtotal = resultado;
 
 document.getElementById('subtotal' + i).innerHTML = resultado;
 
@@ -59,7 +130,7 @@ for (const producto of array) {
             </div>
             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                 <span class="text-muted" style="margin-right: 20px; margin-top:2px;">Cantidad</span>
-              <input id="cantidad${i}" onchange="setCant(carritoArray[${i}], ${i})" min="0" name="quantity" value="${producto.count}" type="number"
+              <input id="cantidad${i}" onchange="setCant(carritoArray[${i}], ${i}), sumarTotales(carritoArray), calcularEnvio()" min="0" name="quantity" value="${producto.count}" type="number"
                 class="form-control form-control-sm" />
 
             </div>
@@ -68,7 +139,7 @@ for (const producto of array) {
               <h5 class="mb-0 text-muted text-start">${producto.currency} <span id="subtotal${i}" class="font-weight-light">${producto.count * producto.unitCost}</span></h5>
             </div>
             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-              <a onclick="borrarProd(carritoArray, ${i})" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+              <a onclick="borrarProd(carritoArray, ${i}), sumarTotales(carritoArray), calcularEnvio()" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
             </div>
           </div>
         </div>
@@ -100,7 +171,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     getJSONData("https://japceibal.github.io/emercado-api/user_cart/25801.json").then(function(resultObj){
         if (resultObj.status === "ok"){
             carritoArray = resultObj.data.articles;
+            carritoArray[0].subtotal = carritoArray[0].unitCost;
             itemsCarrito(carritoArray);
+            sumarTotales(carritoArray);
+            calcularEnvio();
             localStorage.setItem('carrito', JSON.stringify(carritoArray));
         }
     });
@@ -110,8 +184,27 @@ document.addEventListener('DOMContentLoaded', ()=>{
     else {
 
         itemsCarrito(carritoArray);
+        sumarTotales(carritoArray);
+        calcularEnvio();
 
+        document.getElementById('01').addEventListener('onchange', ()=>{
+          calcularEnvio();
+        })
+
+        let radioBtn2 = document.getElementById('02');
+
+        let radioBtn3 = document.getElementById('03');
+
+        radioBtn1.
+        radioBtn2.addEventListener('change', ()=>{
+          calcularEnvio();
+        })
+        radioBtn3.addEventListener('change', ()=>{
+          calcularEnvio();
+        })
+        
     }
+
 
 
 
