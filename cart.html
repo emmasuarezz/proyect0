@@ -11,6 +11,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/estilos.css" rel="stylesheet">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -128,6 +129,85 @@
           </a>
           </div>
 
+          <hr>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-normal mb-0 text-black" style="margin-top: 30px;">Forma de pago</h3>
+          </div>
+          <button type="button" style="width: 200px;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Seleccionar
+          </button>
+          <span class="text-muted" id="feedback"></span>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"><strong>Forma de pago</strong></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                  <input type="radio" name="pago" id="tarjeta" checked>
+                  <label for="tarjeta">Tarjeta de crédito</label>
+                  <div class="row" style="margin-top: 15px;">
+                    <div class="col-6">
+                    <label for="numeroTarjeta">Número de tarjeta</label>
+                    </div>
+                    <div class="col-6">
+                      <label for="codigoTarjeta">Codigo de seguridad</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                    <input class="form-control" type="text" name="numeroTarjeta" id="numeroTarjeta">
+                    </div>
+                    <div class="col-6">
+                    <input class="form-control" type="text" name="codigoTarjeta" id="codigoTarjeta">
+                    </div>
+                    <div class="row" style="margin-top: 15px;">
+                      <div class="col-6">
+                        <label for="vencimientoTarjeta">Vencimiento (MM/AA)</label>
+                    </div>
+                    <div class="row" style="margin-bottom: 15px;">
+                    <div class="col-6">
+                      <input class="form-control" type="text" name="vencimientoTarjeta" id="vencimientoTarjeta">
+                    </div>
+                  </div>
+                  <hr>
+
+                      
+                </div>
+              
+                </div>
+                <input type="radio" name="pago" id="banco">
+
+
+                <label for="banco">Transferencia bancaria</label>
+                  <div class="row">
+                    <div class="col-6" style="margin-top: 15px;">
+                  <label for="bancoNum">Número de cuenta</label>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                    <input class="form-control" type="text" name="bancoNum" id="bancoNum">
+                    </div>
+                  </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+              <br>
+              <br>
+              <br>
+              <div class="row">
+              <button class="btn btn-primary" style="height: 65px;"><strong style="font-size: 20px;">Finalizar compra</strong></button>
+            </div>
+            </div>
+          </div>
     </div>
   </main>
   <footer class="text-muted">
@@ -148,7 +228,6 @@
       <div></div>
     </div>
   </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/name.js"></script>

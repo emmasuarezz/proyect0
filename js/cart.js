@@ -71,18 +71,12 @@ sumarTodo();
 
 }
 
-
-
 function borrarProd(array, i) {
 
 array.splice(i, 1);
 itemsCarrito(array);
 localStorage.setItem('carrito', JSON.stringify(carritoArray));
 }
-
-
-
-
 
 function setCant(obj, i){
 
@@ -105,7 +99,6 @@ function setProdID(prodID){
 
 
 }
-
 
 function itemsCarrito (array) {
 
@@ -157,6 +150,8 @@ document.getElementById("contenedor").innerHTML = htmlContentToAppend;
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
+  document.getElementById('bancoNum').disabled = true;
+
   if (JSON.parse(localStorage.getItem('carrito')) == null) {
 
 
@@ -195,7 +190,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         let radioBtn3 = document.getElementById('03');
 
-        radioBtn1.
         radioBtn2.addEventListener('change', ()=>{
           calcularEnvio();
         })
@@ -206,10 +200,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
 
+    document.getElementById('tarjeta').addEventListener('change', ()=>{
+
+      document.getElementById('codigoTarjeta').disabled = false;
+      document.getElementById('numeroTarjeta').disabled = false;
+      document.getElementById('vencimientoTarjeta').disabled = false;
+      document.getElementById('bancoNum').disabled = true;
+
+      }
+    )
+
+    document.getElementById('banco').addEventListener('change', ()=>{
+
+      document.getElementById('codigoTarjeta').disabled = true;
+      document.getElementById('numeroTarjeta').disabled = true;
+      document.getElementById('vencimientoTarjeta').disabled = true;
+      document.getElementById('bancoNum').disabled = false;
+
+      }
+    )
 
 
+    })
 
-})
 
 
 
