@@ -202,3 +202,15 @@ cursor: pointer;
 opacity: 1;
 
 }
+
+.feedbackMal {
+
+background-color: red !important;
+border: none;
+}
+
+.feedbackBien {
+
+background-color: green !important;
+border: none;
+  }

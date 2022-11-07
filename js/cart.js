@@ -1,6 +1,133 @@
 carritoArray = [];
 
+let calle = document.getElementById('calle');
+let numero = document.getElementById('numero');
+let esquina = document.getElementById('esquina');
+
+
 valores = 0;
+
+
+function validacion() {
+let res = true;
+
+if (calle.value == "" ){
+    calle.setCustomValidity(false);
+    res = false;
+
+} else {
+  calle.setCustomValidity("");
+
+}
+
+if (numero.value == "" ){
+  numero.setCustomValidity(false);
+  res = false;
+
+} else {
+numero.setCustomValidity("");
+
+}
+
+if (esquina.value == "" ){
+  esquina.setCustomValidity(false);
+  res = false;
+
+} else {
+esquina.setCustomValidity("");
+
+}
+
+for (let index = 0; index < carritoArray.length; index++) {
+
+  if (parseInt(document.getElementById('cantidad'+index).value) == 0){
+    document.getElementById('cantidad'+index).setCustomValidity(false);
+    res = false;
+  }
+
+  else {
+    document.getElementById('cantidad'+index).setCustomValidity("");
+  }
+  
+}
+
+if (document.getElementById('tarjeta').checked) {
+
+  if (document.getElementById('numeroTarjeta').value == ""){
+    document.getElementById('numeroTarjeta').setCustomValidity(false);
+    document.getElementById('seleccionar').classList.remove("feedbackBien");
+    document.getElementById('seleccionar').classList.add("feedbackMal");
+    document.getElementById('feedback').innerHTML = "Revisa tu informacion"
+    res = false;
+  }
+  
+ else {
+  document.getElementById('numeroTarjeta').setCustomValidity("");
+  document.getElementById('seleccionar').classList.remove("feedbackMal");
+  document.getElementById('seleccionar').classList.add("feedbackBien");
+  document.getElementById('feedback').innerHTML = "";
+}
+}
+
+if (document.getElementById('codigoTarjeta').value == ""){
+  document.getElementById('codigoTarjeta').setCustomValidity(false);
+  document.getElementById('seleccionar').classList.remove("feedbackBien");
+  document.getElementById('seleccionar').classList.add("feedbackMal");
+  document.getElementById('feedback').innerHTML = "Revisa tu informacion"
+  res = false;
+}
+
+else {
+document.getElementById('codigoTarjeta').setCustomValidity("");
+document.getElementById('seleccionar').classList.remove("feedbackMal");
+document.getElementById('seleccionar').classList.add("feedbackBien");
+document.getElementById('feedback').innerHTML = "";
+}
+
+
+if (document.getElementById('vencimientoTarjeta').value == ""){
+  document.getElementById('vencimientoTarjeta').setCustomValidity(false);
+  document.getElementById('seleccionar').classList.remove("feedbackBien");
+  document.getElementById('seleccionar').classList.add("feedbackMal");
+  document.getElementById('feedback').innerHTML = "Revisa tu informacion"
+  res = false;
+}
+
+else {
+document.getElementById('vencimientoTarjeta').setCustomValidity("");
+document.getElementById('seleccionar').classList.remove("feedbackMal");
+document.getElementById('seleccionar').classList.add("feedbackBien");
+document.getElementById('feedback').innerHTML = ""
+}
+
+if (document.getElementById('banco').checked){
+
+if (document.getElementById('bancoNum').value == "") {
+  document.getElementById('bancoNum').setCustomValidity(false);
+  document.getElementById('seleccionar').classList.remove("feedbackBien");
+  document.getElementById('seleccionar').classList.add("feedbackMal");
+  document.getElementById('feedback').innerHTML = "Revisa tu informacion"
+  res = false;
+}
+else {
+  document.getElementById('bancoNum').setCustomValidity("");
+  document.getElementById('seleccionar').classList.remove("feedbackMal");
+  document.getElementById('seleccionar').classList.add("feedbackBien");
+  document.getElementById('feedback').innerHTML = ""
+}
+
+}
+console.log("Validado!")
+return res;
+
+}
+
+
+
+
+
+
+
 
 function sumarTodo(){
 let total = 0;
@@ -150,6 +277,7 @@ document.getElementById("contenedor").innerHTML = htmlContentToAppend;
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
+  document.getElementById('03').checked = true;
   document.getElementById('bancoNum').disabled = true;
 
   if (JSON.parse(localStorage.getItem('carrito')) == null) {
@@ -220,6 +348,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
       }
     )
 
+    document.getElementById('finalizar').addEventListener('click', evento=>{
+   
+      if( !validacion() || !document.getElementById('Formulario').checkValidity()){
+          evento.preventDefault();
+          evento.stopPropagation();
+      }
+      
+      document.body.classList.add('was-validated');
+  
+      let eventos=['change', 'input'];
+      
+      eventos.forEach( evento=> {document.body.addEventListener(evento, validacion)})
+       
+      if( validacion() && document.getElementById('Formulario').checkValidity()){
+       
+        Swal.fire(
+            'Compra realizada!',
+            'Revisa tu mail para mas informacion',
+            'success'
+          );
+
+    }
+  });
 
     })
 

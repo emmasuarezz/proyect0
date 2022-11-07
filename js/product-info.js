@@ -270,7 +270,7 @@ function showCurrentProduct(array){
           <h1 id="titulo" class="display-4 font-weight-normal">${array.name}</h1>
           <p class="lead font-weight-normal">${array.description}</p>
           <p class="lead font-weight-normal">${array.currency} ${array.cost}</p>
-          <a id="carrito" onclick="addToCart(ProductArray)" class="btn btn-outline-secondary" href="#">Añadir al carrito</a>
+          <a id="carrito" onclick="addToCart(ProductArray)" class="btn btn-outline-secondary">Añadir al carrito</a>
           </br>
           </br>
           <a class="lead font-weight-normal tituloCOM" href="#imagenes">Imagenes</a>

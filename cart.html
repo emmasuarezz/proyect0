@@ -53,6 +53,7 @@
       <hr>
 
     <div id="envio">
+<form id="Formulario" method="post" class="row mt-4 needs-validation" novalidate></form>
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h3 class="fw-normal mb-0 text-black" style="margin-top: 30px;">Tipo de envío</h3>
         </div>
@@ -81,18 +82,27 @@
         <div class="row">
           <div class="col-6">
             <label for="calle">Calle</label>
-          <input class="w-100 form-control" type="text" id="calle">
+          <input class="w-100 form-control" type="text" id="calle" required>
+          <div class="invalid-feedback">
+            Debe ingresar una calle.
+          </div> 
           </div>
           <div class="col-6">
             <label for="numero">Número</label>
-            <input class="w-100 form-control" type="text" id="numero">
+            <input class="w-100 form-control" type="text" id="numero" required>
+            <div class="invalid-feedback">
+              Debe ingresar un numero.
+            </div> 
             </div>
         </div>  
 
         <div class="row">
           <div class="col-6">
             <label for="esquina" style="margin-top:25px;">Esquina</label>
-            <input class="w-100 form-control" type="text" id="esquina">
+            <input class="w-100 form-control" type="text" id="esquina" required>
+            <div class="invalid-feedback">
+              Debe ingresar una esquina.
+            </div> 
             </div>
         </div>
     </div>
@@ -133,9 +143,10 @@
           <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="fw-normal mb-0 text-black" style="margin-top: 30px;">Forma de pago</h3>
           </div>
-          <button type="button" style="width: 200px;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button id="seleccionar" type="button" style="width: 200px;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Seleccionar
           </button>
+
           <span class="text-muted" id="feedback"></span>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -195,20 +206,18 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
               </div>
               <br>
               <br>
               <br>
               <div class="row">
-              <button class="btn btn-primary" style="height: 65px;"><strong style="font-size: 20px;">Finalizar compra</strong></button>
+              <button class="btn btn-primary" type="submit" id="finalizar" style="height: 65px;"><strong style="font-size: 20px;">Finalizar compra</strong></button>
+  
             </div>
             </div>
           </div>
     </div>
+  </form>
   </main>
   <footer class="text-muted">
     <div class="container">
