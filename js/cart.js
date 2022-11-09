@@ -67,7 +67,7 @@ if (document.getElementById('tarjeta').checked) {
   document.getElementById('seleccionar').classList.add("feedbackBien");
   document.getElementById('feedback').innerHTML = "";
 }
-}
+
 
 if (document.getElementById('codigoTarjeta').value == ""){
   document.getElementById('codigoTarjeta').setCustomValidity(false);
@@ -79,9 +79,11 @@ if (document.getElementById('codigoTarjeta').value == ""){
 
 else {
 document.getElementById('codigoTarjeta').setCustomValidity("");
+if (!document.getElementById('vencimientoTarjeta').value == "" && !document.getElementById('numeroTarjeta').value == ""){
 document.getElementById('seleccionar').classList.remove("feedbackMal");
 document.getElementById('seleccionar').classList.add("feedbackBien");
 document.getElementById('feedback').innerHTML = "";
+}
 }
 
 
@@ -95,12 +97,15 @@ if (document.getElementById('vencimientoTarjeta').value == ""){
 
 else {
 document.getElementById('vencimientoTarjeta').setCustomValidity("");
+if (!document.getElementById('codigoTarjeta').value == "" && !document.getElementById('numeroTarjeta').value == ""){
 document.getElementById('seleccionar').classList.remove("feedbackMal");
 document.getElementById('seleccionar').classList.add("feedbackBien");
-document.getElementById('feedback').innerHTML = ""
+document.getElementById('feedback').innerHTML = "";
+}
+}
 }
 
-if (document.getElementById('banco').checked){
+else {
 
 if (document.getElementById('bancoNum').value == "") {
   document.getElementById('bancoNum').setCustomValidity(false);
