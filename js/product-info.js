@@ -2,6 +2,7 @@ let ProductArray = [];
 let CommentsArray = [];
 let ImagesArray = [];
 let SortedCommentsArray = [];
+let CArray = [];
 
 
 
@@ -9,6 +10,13 @@ let SortedCommentsArray = [];
 
 function addToCart(array){
  
+  if (JSON.parse(localStorage.getItem('carrito')) == null) {
+
+
+    localStorage.setItem('carrito', JSON.stringify(CArray));
+
+
+  }
 
 
 let nuevoProducto = {};
@@ -20,6 +28,7 @@ nuevoProducto.name = array.name;
 nuevoProducto.id = localStorage.getItem('prodID');
 nuevoProducto.image = array.images[0];
 nuevoProducto.subtotal = array.cost;
+
 
 let carritoArray = JSON.parse(localStorage.getItem('carrito'));
 

@@ -294,11 +294,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
     carritoArray = JSON.parse(localStorage.getItem('carrito'));
 
-    if (carritoArray.length <= 1){
+    if (!carritoArray.some(e => e.name === 'Peugeot 208') && carritoArray.length <= 1){
 
     getJSONData("https://japceibal.github.io/emercado-api/user_cart/25801.json").then(function(resultObj){
         if (resultObj.status === "ok"){
-            carritoArray = resultObj.data.articles;
+            carritoArray.push(resultObj.data.articles[0]);
             carritoArray[0].subtotal = carritoArray[0].unitCost;
             itemsCarrito(carritoArray);
             sumarTotales(carritoArray);
