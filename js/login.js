@@ -38,10 +38,33 @@ else {
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
+  let Activo = {};
+
+
+    localStorage.setItem("Activo", JSON.stringify(Activo));
+
+
+
     document.getElementById('boton').addEventListener('click', ()=>{
 
         validar();
     })
+
+    document.getElementById('email').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        
+        validar();
+
+      }
+  })
+
+  document.getElementById('password').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      
+      validar();
+
+    }
+})
 
 
 
