@@ -7,7 +7,7 @@ function sesion(mail){
 
   let user = JSON.parse(localStorage.getItem('Activo'));
 
-if ( user == null || isEmpty(JSON.parse(user))) {
+if ( user == null) {
 
   let Activo = {};
 

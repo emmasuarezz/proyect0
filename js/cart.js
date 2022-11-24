@@ -122,7 +122,7 @@ else {
 }
 
 }
-console.log("Validado!")
+
 return res;
 
 }
@@ -281,6 +281,7 @@ document.getElementById("contenedor").innerHTML = htmlContentToAppend;
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
+
 
   document.getElementById('03').checked = true;
   document.getElementById('bancoNum').disabled = true;

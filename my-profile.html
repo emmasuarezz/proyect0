@@ -60,13 +60,19 @@
           <div class="col-lg-6">
              <div class="form-group font-weight-bold">
               <label for="Nombre">Nombre</label>
-              <input name="Nombre" id="Nombre" type="text" class="form-control">
+              <input name="Nombre" id="nombre" type="text" class="form-control" required>
+              <div class="invalid-feedback">
+                Debe ingresar un nombre.
+              </div> 
               <div class="form-group text-muted">
               <label style="margin-top: 35px" for="SNombre">Segundo nombre</label>
               <input name="SNombre" id="SNombre" type="text" class="form-control">
             </div>
               <label style="margin-top: 35px" for="Apellido">Apellido</label>
-              <input name="Apellido" id="Apellido" type="text" class="form-control ">
+              <input name="Apellido" id="apellido" type="text" class="form-control" required>
+              <div class="invalid-feedback">
+                Debe ingresar un apellido.
+              </div> 
               <div class="form-group text-muted">
               <label style="margin-top: 35px" for="SApellido">Segundo apellido</label>
               <input name="SApellido" id="SApellido" type="text" class="form-control">
@@ -75,7 +81,10 @@
           </div>
           <div class="col-lg-6">
              <label for="Email">Email</label>
-             <input name="Email" id="Email" type="text" class="form-control">
+             <input name="Email" id="email" type="text" class="form-control" required>
+             <div class="invalid-feedback">
+              Debe ingresar un email.
+            </div> 
              <div class="form-group text-muted">
              <label style="margin-top: 35px" for="Tel">Telefono</label>
              <input name="Tel" type="text" id="Tel" class="form-control">
