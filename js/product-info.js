@@ -18,27 +18,57 @@ function addToCart(array){
 
   }
 
+  let carritoArray = JSON.parse(localStorage.getItem('carrito'));
 
-let nuevoProducto = {};
+  let nuevoProducto = {};
 
-nuevoProducto.count = 1;
-nuevoProducto.currency = array.currency;
-nuevoProducto.unitCost = array.cost;
-nuevoProducto.name = array.name;
-nuevoProducto.id = localStorage.getItem('prodID');
-nuevoProducto.image = array.images[0];
-nuevoProducto.subtotal = array.cost;
+  nuevoProducto.count = 1;
+  nuevoProducto.currency = array.currency;
+  nuevoProducto.unitCost = array.cost;
+  nuevoProducto.name = array.name;
+  nuevoProducto.id = localStorage.getItem('prodID');
+  nuevoProducto.image = array.images[0];
+  nuevoProducto.subtotal = parseInt(array.cost);
+
+  let res = false;
+  let i = 0;
 
 
-let carritoArray = JSON.parse(localStorage.getItem('carrito'));
+  for (let index = 0; index < carritoArray.length; index++) {
+    const producto = carritoArray[index];
 
-carritoArray.push(nuevoProducto);
+    if (producto.name === `${array.name}`) {
 
-localStorage.setItem('carrito', JSON.stringify(carritoArray));
+      res = true;
+      i = index;
 
-var notification = new Notification("Agregado al carrito!")
+    }
+  
 
-}
+  }
+
+
+  if (res) {
+
+    carritoArray[i].count++
+
+
+  }
+
+  else {
+
+    carritoArray.push(nuevoProducto);
+
+  }
+
+
+
+  localStorage.setItem('carrito', JSON.stringify(carritoArray));
+
+
+  var notification = new Notification("Agregado al carrito!")
+
+  }
 
 
 

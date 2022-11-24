@@ -222,6 +222,12 @@ obj.subtotal = resultado;
 
 document.getElementById('subtotal' + i).innerHTML = resultado;
 
+let unoMas = JSON.parse(localStorage.getItem('carrito'));
+
+unoMas[i] = obj;
+
+localStorage.setItem('carrito', JSON.stringify(unoMas));
+
 }
 
 function setProdID(prodID){
@@ -295,7 +301,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
     carritoArray = JSON.parse(localStorage.getItem('carrito'));
 
-    if (!carritoArray.some(e => e.name === 'Peugeot 208') && carritoArray.length <= 1){
+    if (localStorage.getItem('centinela') == 0){
 
     getJSONData("https://japceibal.github.io/emercado-api/user_cart/25801.json").then(function(resultObj){
         if (resultObj.status === "ok"){
@@ -307,6 +313,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
             localStorage.setItem('carrito', JSON.stringify(carritoArray));
         }
     });
+
+    localStorage.setItem('centinela', 1);
 
     }
 

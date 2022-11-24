@@ -69,6 +69,12 @@ else {
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
+  if (localStorage.getItem('centinela') == null){
+
+    localStorage.setItem('centinela', 0)
+
+  }
+
 
 
     document.getElementById('boton').addEventListener('click', ()=>{

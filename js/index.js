@@ -1,10 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-    if (localStorage.getItem("centinela")==null){
-
-        localStorage.setItem('centinela', 0);
-
-    }
+    
 
     console.log(Notification.permission);
 
